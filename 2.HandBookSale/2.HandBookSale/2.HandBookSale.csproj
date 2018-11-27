@@ -195,6 +195,8 @@
     <Content Include="Views\Home\BizeUlasin.cshtml" />
     <Content Include="Views\Home\UyeOl.cshtml" />
     <Content Include="Views\Home\UyeGirisi.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
