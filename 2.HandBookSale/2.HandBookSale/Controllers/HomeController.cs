@@ -1,16 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using _2.HandBookSale.Models.EntityFramework;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+
 
 namespace _2.HandBookSale.Controllers
 {
     public class HomeController : Controller
         {
+
+        BookSaleEntities db = new BookSaleEntities();
+
             public ActionResult Index()
             {
-                return View();
+                var model = db.books.ToList();
+                return View(model);
+
             }
             [Route("UyeOl")]
 

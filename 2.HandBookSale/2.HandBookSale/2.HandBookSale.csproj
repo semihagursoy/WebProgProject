@@ -55,6 +55,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -155,8 +157,37 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AddBookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\UserRegisterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityFramework\added_books.cs">
+      <DependentUpon>BookSaleEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityFramework\books.cs">
+      <DependentUpon>BookSaleEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityFramework\BookSaleEntity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookSaleEntity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityFramework\BookSaleEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookSaleEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityFramework\BookSaleEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookSaleEntity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityFramework\sold_books.cs">
+      <DependentUpon>BookSaleEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityFramework\users.cs">
+      <DependentUpon>BookSaleEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -189,10 +220,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\EntityFramework\BookSaleEntity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BookSaleEntity.edmx</DependentUpon>
+      <LastGenOutput>BookSaleEntity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EntityFramework\BookSaleEntity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BookSaleEntity.edmx</DependentUpon>
+      <LastGenOutput>BookSaleEntity.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\EntityFramework\BookSaleEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BookSaleEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EntityFramework\BookSaleEntity.edmx.diagram">
+      <DependentUpon>BookSaleEntity.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -224,10 +272,11 @@
     <Content Include="Views\Home\UyeGirisi.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\UserRegister\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\EntityFramework\" />
     <Folder Include="Views\AddBook\" />
+    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -241,6 +290,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

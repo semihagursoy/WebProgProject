@@ -13,10 +13,10 @@ namespace _2.HandBookSale.Models.EntityFramework
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DatabaseEntities : DbContext
+    public partial class BookSaleEntities : DbContext
     {
-        public DatabaseEntities()
-            : base("name=DatabaseEntities")
+        public BookSaleEntities()
+            : base("name=BookSaleEntities")
         {
         }
     
