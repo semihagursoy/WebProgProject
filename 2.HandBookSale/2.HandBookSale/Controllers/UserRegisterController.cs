@@ -18,9 +18,25 @@ namespace _2.HandBookSale.Controllers
             user.user_email = user_email;
             user.user_address = user_address;
             user.user_registration_date = DateTime.Now;
+            user.user_phone = user_phone;
+
 
             db.users.Add(user);
-            db.SaveChanges();
+            
+try
+            {
+                db.SaveChanges();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+            {
+                foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in entityValidationErrors.ValidationErrors)
+                    {
+                        Response.Write("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                    }
+                }
+            }
 
             return View();
         }

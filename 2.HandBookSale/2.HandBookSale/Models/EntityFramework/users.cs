@@ -19,6 +19,7 @@ namespace _2.HandBookSale.Models.EntityFramework
         public string user_email { get; set; }
         public System.DateTime user_registration_date { get; set; }
         public string user_address { get; set; }
+        public string user_phone { get; set; }
     
         public virtual added_books added_books { get; set; }
         public virtual sold_books sold_books { get; set; }
